@@ -1,4 +1,4 @@
-import smptlib
+import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
@@ -15,7 +15,7 @@ def send_email(workflow_name, repo_name, workflow_run_id):
     msg['Subject'] = subject
     msg.attach(MIMEText(body, 'plain'))
     try:
-        server = smptlib.SMTP('smtp.gmail.com',587)
+        server = smtplib.SMTP('smtp.gmail.com',587)
         server.starttls()
         server.login(sender_email, sender_password)
         text = msg.as_string()
